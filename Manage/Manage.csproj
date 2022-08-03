@@ -9,6 +9,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\AptekApp\Core.csproj" />
+    <ProjectReference Include="..\DataAccess\DataAccess.csproj" />
   </ItemGroup>
 
 </Project>

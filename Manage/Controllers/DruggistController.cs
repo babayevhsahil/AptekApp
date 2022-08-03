@@ -1,5 +1,6 @@
 ﻿using Core.Entities;
 using Core.Helpers;
+using DataAccess.Implementations;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,6 +21,7 @@ namespace Manage.Controllers
         public DruggistController()
         {
             _druggistRepository = new DruggistRepository();
+
         }
 
         #region CreateDruggist
@@ -28,12 +30,9 @@ namespace Manage.Controllers
         Name: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter druggist name:");
             string name = Console.ReadLine();
 
-            object? druggist = _druggistRepository.Get(d => d.Name.ToLower() == name.ToLower());
-            if (druggist == null)
-            {
+            
             Surname: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter druggist surnameS:");
                 string size = Console.ReadLine();
-                string name;
                 string surname;
                 byte age;
                 int id;
@@ -43,7 +42,6 @@ namespace Manage.Controllers
                 {
                     Druggist newDruggist = new Druggist
                     {
-                        Id = id,
                         Name = name,
                         Surname = surname,
                         Age = age,
@@ -59,11 +57,8 @@ namespace Manage.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct druggist surname");
                     goto Surname;
                 }
-            }
-            else
-            {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "This group already exists!");
-                goto Name;
+            
+           
             }
 
         }

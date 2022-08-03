@@ -1,12 +1,15 @@
 ﻿using Core.Constans;
 using Core.Helpers;
+using Manage.Controllers;
 
 namespace Manage
 {
     public class Program
     {
-        public void Main()
+        static void Main()
         {
+            var admin = AdminController.Authenticate();
+            DruggistController _druggistController = new DruggistController();
             if (admin != null)
             {
                 ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Welcome, {admin.Username}");
@@ -35,22 +38,22 @@ namespace Manage
                             switch (selectedNumber)
                             {
                                 case (int)Options.CreateDruggist:
-                                    _groupController.CreateDruggist();
+                                    _druggistController.CreateDruggist();
                                     break;
                                 case (int)Options.UpdateDruggist:
-                                    _groupController.UpdateDruggist();
+                                    _druggistController.UpdateDruggist();
                                     break;
                                 case (int)Options.DeleteDruggist:
-                                    _groupController.DeleteDruggist();
+                                    _druggistController.DeleteDruggist();
                                     break;
                                 case (int)Options.AllDruggist:
-                                    _groupController.AllDruggist();
+                                    _druggistController.AllDruggist();
                                     break;
                                 case (int)Options.GetDruggistByName:
-                                    _groupController.GetDruggistName();
+                                    _druggistController.GetDruggistName();
                                     break;                              
                                 case (int)Options.Exit:
-                                    _groupController.Exit();
+                                    _druggistController.Exit();
                                     return;
                             }
                         }
