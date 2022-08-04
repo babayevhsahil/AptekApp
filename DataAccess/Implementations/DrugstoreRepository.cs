@@ -9,32 +9,33 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implementations
 {
-    public class DrugstoreRepository : IRepository <Drugstore>
+    public class DrugstoreRepository : IRepository<Drugstore>
     {
         private static int id;
 
         public Drugstore Create(Drugstore entity)
-        { 
+        {
             id++;
             entity.Id = id;
             try
             {
                 DbContext.Drugstores.Add(entity);
+                return entity;
             }
             catch (Exception e)
             {
 
                 Console.WriteLine(e.Message);
+                return entity;
             }
-            return entity;
-           
+
         }
 
         public void Delete(Drugstore entity)
         {
             try
             {
-                DbContext.Drugstores.Remove(entity);
+                DbContext.DrugStores.Remove(entity);
             }
             catch (Exception e)
             {
@@ -46,12 +47,14 @@ namespace DataAccess.Implementations
         {
             try
             {
-                var drugstore = DbContext.Drugstores.Find(g => g.Id == entity.Id);
+                var drugstore = DbContext.DrugStores.Find(g => g.Id == entity.Id);
                 if (drugstore != null)
                 {
+                    var drugstore = DbContext.DrugStores.Find(d => d.Id == entity.Id);
                     drugstore.Name = entity.Name;
                     drugstore.Adress = entity.Adress;
                     drugstore.ContactNumber = entity.ContactNumber;
+                    drugstore.Onwer = entity.Onwer;
                 }
             }
             catch (Exception e)
@@ -66,11 +69,12 @@ namespace DataAccess.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContext.Drugstores[0];
+                    return DbContext.DrugStores[0];
                 }
                 else
                 {
-                    return DbContext.Drugstores.Find(filter);
+                    return DbContext.DrugStores.Find(filter);
+                    return null;
                 }
             }
             catch (Exception e)
@@ -86,11 +90,11 @@ namespace DataAccess.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContext.Drusgstores;
+                    return DbContext.DrugStores;
                 }
                 else
                 {
-                    return DbContext.Drugstores.FindAll(filter);
+                    return DbContext.DrugStores.FindAll(filter);
                 }
             }
             catch (Exception e)
@@ -101,6 +105,6 @@ namespace DataAccess.Implementations
             }
         }
 
-       
+
     }
 }
