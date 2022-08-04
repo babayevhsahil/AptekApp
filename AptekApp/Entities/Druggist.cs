@@ -20,6 +20,6 @@ namespace Core.Entities
 
         public string Experience { get; set; }
 
-        public string Drugsrore { get; set; }
+        public Drugstore Drugsrore { get; set; }
     }
 }

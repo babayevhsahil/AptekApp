@@ -18,10 +18,10 @@ namespace Core.Entities
 
         public string ContactNumber { get; set; }
 
-        public string Duriggists { get; set; }
+        public List<Druggist> Duriggists { get; set; }
 
-        public string Drugs { get; set; }
+        public List<Drug> Drugs { get; set; }
 
-        public string Onwer { get; set; }
+        public Onwer Onwer { get; set; }
     }
 }

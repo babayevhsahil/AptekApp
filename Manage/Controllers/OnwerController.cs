@@ -14,7 +14,7 @@ namespace Manage.Controllers
         #region CreateOnwer
         public void CreateOnwer()
         {
-            ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter Onwer Name:");
+           Name: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter Onwer Name:");
             string name = Console.ReadLine();
             if (!string.IsNullOrEmpty(name))
             {
@@ -28,11 +28,12 @@ namespace Manage.Controllers
                     Surname = surname,
                 };
                 _onwerRepository.Create(onwer);
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Name: {name}, Surname: {surname} ");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, $"Name: {name}, Surname: {surname} ");
             }
             else
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Add a number:");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Add a number:");
+                goto Name;
             }
 
         }

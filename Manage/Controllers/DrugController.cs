@@ -1,4 +1,5 @@
-﻿using Core.Helpers;
+﻿using Core.Entities;
+using Core.Helpers;
 using DataAccess.Implementations;
 using System;
 using System.Collections.Generic;
@@ -31,10 +32,28 @@ namespace Manage.Controllers
                     result = int.TryParse(count, out drugCount);
                     if (result)
                     {
-                        var drugs = _drugRepositroy.GetAll();
+                       
+                        foreach (var drugstore in drugs)
+                        { 
+                            ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue, $"Id: {drugstore.Id}, Name: {drugstore.Name}, ");
+
+                        }
+                        var drug = new Drug
+                        {
+                            Name = name,
+                            Peice = price,
+                            Count = count,
+                        };
+                        _drugRepository.Create(drug);
+                        ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkBlue,$"Name: {name}, Id: {drug.Id},");
+
                     }
 
                 }
+            }
+            else
+            {
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.DarkRed, "Create a drugstore, creating a drug:");
             }
         }
     }

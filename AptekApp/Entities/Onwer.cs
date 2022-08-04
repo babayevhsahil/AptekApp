@@ -16,7 +16,7 @@ namespace Core.Entities
 
         public string Surname { get; set; }
 
-        public List <Onwer> Onwers { get; set; }
+        public List <Drugstore> Drugstores { get; set; }
 
     }
 }

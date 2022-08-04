@@ -27,28 +27,31 @@ namespace Manage.Controllers
         #region CreateDruggist
         public void CreateDruggist()
         {
-        Name: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter druggist name:");
+        Name: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Please Enter Druggist Name:");
             string name = Console.ReadLine();
 
-            
-            Surname: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Enter druggist surnameS:");
+            object? druggist = _druggistRepository.Get(d => d.Name.ToLower() == name.ToLower());
+            if (druggist == null)
+            {
+            Surname: ConsoleHelper.WriteTextWithColor(ConsoleColor.Magenta, "Please Enter Druggist Surname:");
                 string size = Console.ReadLine();
                 string surname;
                 byte age;
                 int id;
                 string experience;
-                
+
                 if (result)
                 {
                     Druggist newDruggist = new Druggist
                     {
+                        Id = id,
                         Name = name,
                         Surname = surname,
                         Age = age,
                         Experience = experience,
                         Drugstore = drugstore,
                     };
-                    
+
                     var createdDruggist = _druggistRepository.Create(newDruggist);
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"{createdDruggist.Name} is successfully created with surname - {createdDruggist.Surname}, {createdDruggist.Age}, {createdDruggist.Experience}");
                 }
@@ -57,12 +60,17 @@ namespace Manage.Controllers
                     ConsoleHelper.WriteTextWithColor(ConsoleColor.Red, "Please, enter correct druggist surname");
                     goto Surname;
                 }
-            
-           
             }
 
         }
+       0
+	{
 
-        #endregion
+
+	}
+
     }
+
+    #endregion
 }
+

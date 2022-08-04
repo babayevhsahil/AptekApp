@@ -8,6 +8,9 @@ namespace Manage.Controllers
 {
     public class AdminController
     {
-
+        internal static object Authenticate()
+        {
+            throw new NotImplementedException();
+        }
     }
 }

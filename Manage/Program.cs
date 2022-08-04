@@ -12,7 +12,7 @@ namespace Manage
             DruggistController _druggistController = new DruggistController();
             if (admin != null)
             {
-                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Welcome, {admin.Username}");
+                ConsoleHelper.WriteTextWithColor(ConsoleColor.Green, $"Welcome, {admin.Username},");
                 Console.WriteLine("---");
 
                 while (true)
