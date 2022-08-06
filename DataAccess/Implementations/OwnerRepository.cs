@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implementations
 {
-    public class OnwerRepository : IRepository<Onwer> 
+    public class OwnerRepository : IRepository<Owner> 
     {
         private static int id;
 
@@ -24,12 +24,12 @@ namespace DataAccess.Implementations
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
             return entity;
         }
 
-        public void Delete(Onwer entiity)
+        public void Delete(Owner entity)
         {
             try
             {
@@ -37,15 +37,15 @@ namespace DataAccess.Implementations
             }
             catch
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
         }
 
-        public void Update(Onwer entity)
+        public void Update(Owner entity)
         {
             try
             {
-                var onwer = DbContext.Onwers.Find(g => g.Id == entity.Id);
+                var onwer = DbContext.Owners.Find(g => g.Id == entity.Id);
                 if (onwer != null)
                 {
                     onwer.Name = entity.Name;
@@ -54,31 +54,31 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-              Console.WriteLine(e.Message);
+              Console.WriteLine("Something went wrong");
             }
         }
 
-        public Onwer Get(Predicate<Onwer> filter = null)
+        public Owner Get(Predicate<Owner> filter = null)
         {
             try
             {
                 if (filter == null)
                 {
-                    return DbContext.Onwers[0];
+                    return DbContext.Owners[0];
                 }
                 else
                 {
-                    return DbContext.Onwers.Find(filter);
+                    return DbContext.Owners.Find(filter);
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }
 
-        public List<Onwer> GetAll(Predicate<Onwer> filter = null)
+        public List<Owner> GetAll(Predicate<Owner> filter = null)
         {
             try
             {
@@ -94,7 +94,7 @@ namespace DataAccess.Implementations
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }

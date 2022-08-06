@@ -18,8 +18,9 @@ namespace Core.Entities
 
         public byte Age { get; set; }
 
-        public string Experience { get; set; }
+        public double Experience  { get; set; }
 
-        public Drugstore Drugsrore { get; set; }
+        public Drugstore Drugstore { get; set; } 
+
     }
 }

@@ -9,10 +9,9 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implementations
 {
-    public class DrugRepositroy : IRepository <Drug>
+    public class DrugRepository : IRepository <Drug>
     {
         private static int id;
-
         public Drug Create(Drug entity)
         {
             id++;
@@ -20,14 +19,15 @@ namespace DataAccess.Implementations
             try
             {
                 DbContext.Drugs.Add(entity);
+                return entity;
+
             }
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
+                return null;
             }
-            return entity;
-
         }
 
         public void Delete(Drug entity)
@@ -38,25 +38,8 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
-            }
-        }
 
-        public void Update(Drug entity)
-        {
-            try
-            {
-                var drug = DbContext.Drugs.Find(g => g.Id == entity.Id);
-                if (drug != null)
-                {
-                    drug.Name = entity.Name;
-                    drug.Count = entity.Count;
-                    drug.Drugstores = entity.Drugstores;
-                }
-            }
-            catch (Exception e)
-            {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
         }
 
@@ -67,6 +50,7 @@ namespace DataAccess.Implementations
                 if (filter == null)
                 {
                     return DbContext.Drugs[0];
+
                 }
                 else
                 {
@@ -75,7 +59,8 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }
@@ -96,8 +81,29 @@ namespace DataAccess.Implementations
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
+            }
+        }
+
+        public void Update(Drug entity)
+        {
+            try
+            {
+                if (entity != null)
+                {
+                    var drug = DbContext.Drugs.Find(d => d.Id == entity.Id);
+                    drug.Name = entity.Name;
+                    drug.Count = entity.Count;
+                    drug.Price = entity.Price;
+
+                }
+            }
+            catch (Exception e)
+            {
+
+                Console.WriteLine("Something went wrong");
+
             }
         }
     }

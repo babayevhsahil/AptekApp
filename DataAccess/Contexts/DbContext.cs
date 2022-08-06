@@ -14,9 +14,9 @@ namespace DataAccess.Contexts
         {
             Drugs = new List<Drug>();
             Druggists = new List<Druggist>();
+            Owners = new List<Owner>();
             Drugstores = new List<Drugstore>();
             Admins = new List<Admin>();
-            Owners = new List<Owner>();
 
 
 
@@ -36,9 +36,9 @@ namespace DataAccess.Contexts
 
         public static List<Drug> Drugs { get; set; }
         public static List<Druggist> Druggists { get; set; }
-        public static List<Drugstore> DrugStores { get; set; }
-        public static List<Admin> Admins { get; set; }
         public static List<Owner> Owners { get; set; }
+        public static List<Drugstore> Drugstores { get; set; }
+        public static List<Admin> Admins { get; set; }
 
 
     }
@@ -47,4 +47,4 @@ namespace DataAccess.Contexts
 
 
 }
-}
+

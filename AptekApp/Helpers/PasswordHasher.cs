@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Core.Helpers
 {
-    public class PasswordHasher
+    public static class PasswordHasher
     {
         public static string Encrypt(string password)
         {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace DataAccess.Implementations
 {
-    public class AdminRepositroy : IRepository<Admin>
+    public class AdminRepository : IRepository<Admin>
     {
         private static int id;
 
@@ -23,7 +23,7 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
             return entity;
         }

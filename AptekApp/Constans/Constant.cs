@@ -6,48 +6,48 @@ using System.Threading.Tasks;
 
 namespace Core.Constans
 {
-    public enum AdminOptions
+    public enum OwnerOptions
     {
-        Logout = 1,
-        BackMainMenu = 0,
+        Exit,
+        CreateOnwer,
+        UpdateOnwer,
+        DeleteOnwer,
+        GetAllOnwer,
+        DeleteOnwer,
     }
+    public enum DrugStoreOptions
+    {
+        Exit,
+        CreateDrugStore,
+        UpdateDrugStore,
+        SaleDrug,
+        GetAllDrugStore,
+        DeleteDrugStore,
+        GetOnwerDrugStore,
+    }
+    public enum DruggistOptions
+    {
+        Exit,
+        CreateDruggist,
+        UpdateDruggist,
+        GetAllDruggist,
+        DeleteDruggist,
+        GetAllDruggistDrugStore,
+        
+    }
+  
     public enum DrugOptions
     {
-        CreateDrug = 1,
+        Exit,
+        CreateDrug,
         UpdateDrug,
         DeleteDrug,
         GetAllDrug,
-        GetAllDrugByStore,
-        DrugFilter,
-        BackMainMenu = 0,
-    }
-
-    public enum DruggistOptions
-    {
-        CreateDruggist = 1,
-        UpdateDruggist,
-        DeleteDruggist,
-        GetAllDruggist,
-        GetAllDruggistByDrugStore,
-        BackToMainMenu = 0,
-    }
-
-    public enum DrugStoreOptions
-    {
-        CreateDrugStore = 1,
-        UpdateDrugStore,
-        DeleteDrugStore,
         GetAllDrugStore,
-        GetAllDrugStoreByOwner,
-        Sale,
-        BackToMainMenu = 0,
+        
+        
     }
-    public enum OwnerOptions
-    {
-        CreateOwner = 1,
-        UpdateOwner,
-        DeleteOwner,
-        GetAllOwner,
-        BackToMainMenu = 0,
-    }
+
+
+
 }

@@ -25,7 +25,7 @@ namespace DataAccess.Implementations
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return entity;
             }
 
@@ -35,11 +35,11 @@ namespace DataAccess.Implementations
         {
             try
             {
-                DbContext.DrugStores.Remove(entity);
+                DbContext.Drugstores.Remove(entity);
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
         }
 
@@ -47,10 +47,10 @@ namespace DataAccess.Implementations
         {
             try
             {
-                var drugstore = DbContext.DrugStores.Find(g => g.Id == entity.Id);
+                var drugstore = DbContext.Drugstores.Find(g => g.Id == entity.Id);
                 if (drugstore != null)
                 {
-                    var drugstore = DbContext.DrugStores.Find(d => d.Id == entity.Id);
+                    var Drugstore = DbContext.Drugstores.Find(d => d.Id == entity.Id);
                     drugstore.Name = entity.Name;
                     drugstore.Adress = entity.Adress;
                     drugstore.ContactNumber = entity.ContactNumber;
@@ -59,7 +59,7 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
         }
 
@@ -69,17 +69,17 @@ namespace DataAccess.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContext.DrugStores[0];
+                    return DbContext.Drugstores[0];
                 }
                 else
                 {
-                    return DbContext.DrugStores.Find(filter);
+                    return DbContext.Drugstores.Find(filter);
                     return null;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }
@@ -90,17 +90,17 @@ namespace DataAccess.Implementations
             {
                 if (filter == null)
                 {
-                    return DbContext.DrugStores;
+                    return DbContext.Drugstores;
                 }
                 else
                 {
-                    return DbContext.DrugStores.FindAll(filter);
+                    return DbContext.Drugstores.FindAll(filter);
                 }
             }
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }

@@ -24,7 +24,7 @@ namespace DataAccess.Implementations
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
             return entity;
 
@@ -38,7 +38,7 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
         }
 
@@ -53,12 +53,12 @@ namespace DataAccess.Implementations
                     druggist.Surname = entity.Surname;
                     druggist.Age = entity.Age;
                     druggist.Experience = entity.Experience;
-                    druggist.Drugsrore = entity.Drugsrore;
+                    druggist.Drugstore = entity.Drugstore;
                 }
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
             }
         }
 
@@ -77,7 +77,7 @@ namespace DataAccess.Implementations
             }
             catch (Exception e)
             {
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }
@@ -98,7 +98,7 @@ namespace DataAccess.Implementations
             catch (Exception e)
             {
 
-                Console.WriteLine(e.Message);
+                Console.WriteLine("Something went wrong");
                 return null;
             }
         }

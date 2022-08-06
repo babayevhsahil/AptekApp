@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace Core.Entities
 {
-    public class Onwer : IEntity
+    public class Owner : IEntity
         // Aptekin sahibi
     {
         public int Id { get; set; }
