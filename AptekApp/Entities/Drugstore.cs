@@ -22,6 +22,6 @@ namespace Core.Entities
 
         public List<Drug> Drugs { get; set; }
 
-        public Onwer Onwer { get; set; }
+        public Owner Onwer { get; set; }
     }
 }

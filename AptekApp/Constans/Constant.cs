@@ -9,21 +9,19 @@ namespace Core.Constans
     public enum OwnerOptions
     {
         Exit,
-        CreateOnwer,
-        UpdateOnwer,
-        DeleteOnwer,
-        GetAllOnwer,
-        DeleteOnwer,
+        CreateOwner,
+        UpdateOwner,
+        DeleteOwner,
+        GetAllOwner,
     }
-    public enum DrugStoreOptions
+    public enum DrugstoreOptions
     {
         Exit,
-        CreateDrugStore,
-        UpdateDrugStore,
-        SaleDrug,
-        GetAllDrugStore,
-        DeleteDrugStore,
-        GetOnwerDrugStore,
+        CreateDrugstore,
+        UpdateDrugstore,
+        GetAllDrugstore,
+        DeleteDrugstore,
+        GetOnwerDrugstore,
     }
     public enum DruggistOptions
     {
